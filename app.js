@@ -9,8 +9,16 @@ function saveToLocalStorage(event) {
         email,
         phonenumber
     }
-    localStorage.setItem(obj.email, JSON.stringify(obj))
-    showNewUserOnScreen(obj)
+    axios.post("https://crudcrud.com/api/253a978e6dcf4d4f9f6ec8d82a091fc4/Appoinmentdata",obj)
+    .then((respone)=>{
+        showNewUserOnScreen(respone.data)
+    console.log(respone)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+    // localStorage.setItem(obj.email, JSON.stringify(obj))
+    // showNewUserOnScreen(obj)
 }
 
 window.addEventListener("DOMContentLoaded", () => {
